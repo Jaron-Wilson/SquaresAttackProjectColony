@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         Board board = new Board(main);  // Create an instance of the Board class
-        Generation generation = new Generation(board);
+        Generation generation = new Generation(board);//
         Squares squares = new Squares();
         System.out.println("Starting...");
         SwingUtilities.invokeLater(() -> {
