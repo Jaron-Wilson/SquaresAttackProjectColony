@@ -2,22 +2,17 @@ import java.awt.*;
 import java.util.Random;
 
 public class Squares {
-    private boolean on;
+
     private int type = 0; // 1,2,3 // 0 means off
     private Color color;
-    private double spreadChance = 2.0;
+    private double[] spreadChance = {0.0, 0.2, 0.3, 0.5};
     private int powerLevel = 1;
     private int lifeTime = 100;
-    private double age = 0;
 
     public Squares() {
-        this.on = false;
     }
 
 
-    public boolean isOn() {
-        return on;
-    }
 
     public int getPowerLevel() {
         return powerLevel;
@@ -43,15 +38,12 @@ public class Squares {
         this.color = color;
     }
 
-    public void setOn(boolean on) {
-        this.on = on;
-    }
 
-    public double getSpreadChance() {
+    public double[] getSpreadChance() {
         return spreadChance;
     }
 
-    public void setSpreadChance(double spreadChance) {
+    public void setSpreadChance(double[] spreadChance) {
         this.spreadChance = spreadChance;
     }
 
@@ -61,13 +53,5 @@ public class Squares {
 
     public void setLifeTime(int lifeTime) {
         this.lifeTime = lifeTime;
-    }
-
-    public double getAge() {
-        return age;
-    }
-
-    public void setAge(double age) {
-        this.age = age;
     }
 }

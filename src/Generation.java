@@ -18,16 +18,23 @@ public class Generation {
         int[][] gridValues = board.getGridValues();
         if (gridValues[x][y] != 0) {
             if(grid[x][y]) {
-                if (!(newX > board.getSize().getWidth()-1) && !(newY > board.getSize().getHeight()-1)) {
+                if (newX >= 0 && newX < board.getSize().getWidth()-1 && newY >= 0 && newY < board.getSize().getHeight()-1) {
                     grid[newX][newY] = true;
                     gridValues[newX][newY] = 1;
-                    System.out.println(gridValues[newX][newY]);
-                }else {
-                    System.out.println("To far!");
+                    //System.out.println(gridValues[newX][newY]);
+                } else {
+                    System.out.println("Too far!");
                 }
+
             }
         }
     }
 
+    public int getGenerationNumber() {
+        return generationNumber;
+    }
 
+    public void setGenerationNumber(int generationNumber) {
+        this.generationNumber = generationNumber;
+    }
 }

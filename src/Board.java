@@ -4,6 +4,7 @@ import java.awt.*;
 public class Board extends JFrame {
     private boolean[][] grid;  // 2D array to represent the grid
     private int[][] gridValues;
+    private int[][] age;
 
     private Main main;
 
@@ -99,4 +100,14 @@ public class Board extends JFrame {
     public void setGridValues(int[][] gridValues) {
         this.gridValues = gridValues;
     }
+
+    public int[][] getAge() {
+        return age;
+    }
+
+    public void setAge(int[][] age) {
+        this.age = age;
+    }
+
+
 }
