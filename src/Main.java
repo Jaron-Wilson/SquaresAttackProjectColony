@@ -10,17 +10,22 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         Board board = new Board(main);  // Create an instance of the Board class
-        Generation generation = new Generation(board);//
         Squares squares = new Squares();
+        Generation generation = new Generation(board, squares);
         System.out.println("Starting...");
         SwingUtilities.invokeLater(() -> {
-
             board.setVisible(true);  // Make the JFrame visible
         });
+
+
         generation.setUpSquares();
 
         while (true) {
-            System.out.println(generation);
+            for (int i = 0; i < board.getGrid().length; i++) {
+                System.out.println(board.getGrid()[i][i]);
+                generation.checkWhoDies(i,i,i+1,i+1);
+            }
+//            System.out.println(generation);
 
             try {
                 Thread.sleep(100); // Add a delay of 100 milliseconds

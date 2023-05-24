@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class Board extends JFrame {
     private boolean[][] grid;  // 2D array to represent the grid
+    private int[][] gridValues;
 
     private Main main;
 
@@ -12,12 +13,13 @@ public class Board extends JFrame {
         this.main = main;
         setUpWindow();  // Method to set up the JFrame window
         grid = new boolean[main.getSize()][main.getSize()];  // Initializing the grid
+        gridValues = new int[main.getSize()][main.getSize()];
         initializeGrid();  // Method to set all elements in the grid to false
 
 //        grid[0][0] = true;  // Setting element at position [0][0] to true
     }
 
-    private void setBox(int x, int y, boolean b, Color color) {
+    private void setBox(int x, int y, boolean b, int type, Color color) {
 
         if (!b) { // IF FALSE
             grid[x][y] = false;
@@ -25,8 +27,9 @@ public class Board extends JFrame {
             grid[x][y] = true;
         }
     }
-    void setBox(int x, int y, boolean b) {
+    void setBox(int x, int y, boolean b, int type) {
         grid[x][y] = b;
+        gridValues[x][y] = type;
     }
 
     private void setUpWindow() {
@@ -55,6 +58,7 @@ public class Board extends JFrame {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 grid[i][j] = false;  // Setting all elements in the grid to false
+                gridValues[i][j] = 0; // Setting all elements in the grid to type 0;
             }
         }
     }
@@ -84,5 +88,15 @@ public class Board extends JFrame {
         }
     }
 
+    public boolean[][] getGrid() {
+        return grid;
+    }
 
+    public int[][] getGridValues() {
+        return gridValues;
+    }
+
+    public void setGridValues(int[][] gridValues) {
+        this.gridValues = gridValues;
+    }
 }
