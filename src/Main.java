@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
     private int windowSize = 800;
@@ -26,19 +27,26 @@ public class Main {
 
     public void mainGameLoop(Board board, Generation generation, Squares squares) {
         System.out.println("Setting up Basic squares!");
-        generation.setUpSquares();
+        generation.setUpStartingSquares();
         System.out.println("Loaded! \n GameLoop STARTED");
         while (true) {
-            int gridSize = getSize();
-            for (int row = 0; row < gridSize - 1; row++) {
-                for (int col = 0; col < gridSize - 1; col++) {
-//                    System.out.println(board.getGrid()[row][col]);
-                    generation.checkWhoDies(row, col, row + 1, col + 1);
+//            int gridSize = getSize();
+//            for (int x = 0; x < gridSize - 1; x++) {
+//                for (int y = 0; y < gridSize - 1; y++) {
+//                    generation.checkWhoDies(row, col, row + 1, col + 1);
+//                    generation.checkWhoDies(x, y, x+1 , y+0);
+//                }
+//            }
 
-                }
-            }
 
-//            System.out.println(generation);
+
+            board.setBox(3, 3, true, 2); // Activate the square at position (3, 3) and set its type to 2 (green)
+
+            Color squareColor = board.getGrid()[3][3].getColor(); // Get the color of the square
+            System.out.println(squareColor);
+
+
+
             try {
                 Thread.sleep(500); // Add a delay of 100 milliseconds
             } catch (InterruptedException e) {
