@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.util.Random;
 
 public class Main {
-    private int windowSize = 800;
     private String title = "Game Board";
-    private int size = 20;
-//    private int cellSize = 20;
-    private int cellSize = windowSize/size;
+    private int size = 100;
+    private int width = 800, height = 800;
+//    private int cellSize = windowSize/size;
+    private int cellSize = width/size;
 
     public static void main(String[] args) {
         System.out.println("Loading Classes...");
@@ -45,24 +45,24 @@ public class Main {
 
 
             try {
-                Thread.sleep(1);
+                Thread.sleep(250);
             } catch (InterruptedException e) {
             }
 
             int x = random.nextInt(gridSize);
             int y = random.nextInt(gridSize);
             if (board.getGrid()[x][y].getType() == 0) {
-                board.setBox(x, y, true, random.nextInt(3) + 1); // Activate the square at position (3, 3) and set its type to 2 (green)
-//            } else {
+                board.setBox(x, y, true, random.nextInt(3) + 1); // Activate the square at position (x, y) and set its type to ?
 //                for (int e = 0; e < gridSize; e++) {
 //                    for (int f = 0; f < gridSize; f++) {
 ////                    generation.checkWhoDies(row, col, row + 1, col + 1);
 ////                    generation.checkWhoDies(x, y, x+1 , y+0);
-//                        board.setBox(e, f, true, 2);
+//                        board.setBox(e, f, true, 3);
 //                    }
 //                }
-//            }
             }
+
+
 
             board.repaint();
         }
@@ -72,8 +72,12 @@ public class Main {
         return cellSize;
     }
 
-    public int getWindowSize() {
-        return windowSize;
+    public int getWindowWidth() {
+        return width;
+    }
+
+    public int getWindowHeight() {
+        return height;
     }
 
     public String getTitle() {

@@ -33,7 +33,7 @@ public class Board extends JFrame {
 
             @Override
             public Dimension getPreferredSize() {
-                return new Dimension(main.getWindowSize(), main.getWindowSize());  // Setting the preferred size of the panel
+                return new Dimension(main.getWindowWidth(), main.getWindowHeight());  // Setting the preferred size of the panel
             }
         };
 

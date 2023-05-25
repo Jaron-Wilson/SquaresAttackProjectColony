@@ -93,4 +93,10 @@ public class Square {
 
         return true;
     }
+
+    public boolean canMoveHere() {
+
+
+        return false;
+    }
 }
