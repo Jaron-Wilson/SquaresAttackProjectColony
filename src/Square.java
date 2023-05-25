@@ -1,7 +1,6 @@
 import java.awt.*;
-import java.util.Random;
 
-public class Squares {
+public class Square {
 
     private int type = 0; // 1,2,3 // 0 means off
     private Color color;
@@ -38,21 +37,22 @@ public class Squares {
     public void setColor(int type) {
         this.type = type; // Update the type property of the Squares object
 
-        if (type == 0) {
-            System.out.println("FIRST WHITE");
-            color = Color.WHITE;
-        } else if (type == 1) {
-            System.out.println("BLACK");
-            color = Color.BLACK;
-        } else if (type == 2) {
-            System.out.println("GREEN");
-            color = Color.GREEN;
-        }else if (type == 3) {
-            System.out.println("RED");
-            color = Color.RED;
-        } else {
-            System.out.println("White");
-            color = Color.WHITE;
+        switch (type) {
+            case 0 -> {
+                color = Color.WHITE;
+            }
+            case 1 -> {
+                color = Color.BLACK;
+            }
+            case 2 -> {
+                color = Color.GREEN;
+            }
+            case 3 -> {
+                color = Color.RED;
+            }
+            default -> {
+                color = Color.WHITE;
+            }
         }
     }
 
@@ -76,7 +76,7 @@ public class Squares {
         this.lifeTime = lifeTime;
     }
 
-    public void setNull(int x, int y, Squares[][] grid) {
+    public void setNull(int x, int y, Square[][] grid) {
         if (grid != null) {
             grid[x][y].setActive(false);
             grid[x][y].setType(0);
@@ -84,7 +84,7 @@ public class Squares {
     }
 
     public boolean checkDeath(Board board, int x, int y, int type) {
-        Squares[][] grid = board.getGrid();
+        Square[][] grid = board.getGrid();
 
 //        if it is deactivate and type is not itself and type is not 0 then set it to 0
         if (!grid[x][y].isActive() && (this.type != 0 || this.type != type)) {

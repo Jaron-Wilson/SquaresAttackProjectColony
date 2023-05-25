@@ -2,14 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Board extends JFrame {
-    private Squares[][] grid; // 2D array of Cell objects to represent the grid
+    private Square[][] grid; // 2D array of Cell objects to represent the grid
 
     private Main main;
 
     public Board(Main main) {
         this.main = main;
         setUpWindow();  // Method to set up the JFrame window
-        grid = new Squares[main.getSize()][main.getSize()];  // Initializing the grid
+        grid = new Square[main.getSize()][main.getSize()];  // Initializing the grid
         initializeGrid();  // Method to set all elements in the grid to false
 
 //        grid[0][0] = true;  // Setting element at position [0][0] to true
@@ -45,7 +45,7 @@ public class Board extends JFrame {
     private void initializeGrid() {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                grid[i][j] = new Squares();
+                grid[i][j] = new Square();
                 grid[i][j].setActive(false);  // Setting all elements in the grid to false
                 grid[i][j].setType(0); // Setting all elements in the grid to type 0;
             }
@@ -77,7 +77,7 @@ public class Board extends JFrame {
         }
     }
 
-    public Squares[][] getGrid() {
+    public Square[][] getGrid() {
         return grid;
     }
 
