@@ -22,8 +22,8 @@ public class Main {
 
         main.mainGameLoop(board, generation, squares);
 
-
     }
+
 
     public void mainGameLoop(Board board, Generation generation, Square squares) {
         Random random = new Random();
@@ -31,7 +31,8 @@ public class Main {
         generation.setUpStartingSquares();
         System.out.println("Loaded! \n GameLoop STARTED");
         while (true) {
-            int gridSize = getSize();
+//            int gridSize = getSize();
+
 //            for (int x = 0; x < gridSize; x++) {
 //                for (int y = 0; y < gridSize ; y++) {
 ////                    generation.checkWhoDies(row, col, row + 1, col + 1);
@@ -44,27 +45,39 @@ public class Main {
 //            System.out.println(board.getGrid()[3][3].getColor()); // Get the color of the square
 
 
-            try {
-                Thread.sleep(250);
-            } catch (InterruptedException e) {
+
+
+//            int x = random.nextInt(gridSize);
+//            int y = random.nextInt(gridSize);
+//            if (board.getGrid()[x][y].getType() == 0) {
+//                board.setBox(x, y, true, random.nextInt(3) + 1); // Activate the square at position (x, y) and set its type to ?
+////                for (int e = 0; e < gridSize; e++) {
+////                    for (int f = 0; f < gridSize; f++) {
+//////                    generation.checkWhoDies(row, col, row + 1, col + 1);
+//////                    generation.checkWhoDies(x, y, x+1 , y+0);
+////                        board.setBox(e, f, true, 3);
+////                    }
+////                }
+//            }
+
+
+
+            Square[][] grid = board.getGrid();
+            int gridLength = grid.length;
+
+            for (int x = 0; x < gridLength; x++) {
+                for (int y = 0; y < gridLength; y++) {
+                    squares.canMoveHere(x, y, board);
+                }
             }
 
-            int x = random.nextInt(gridSize);
-            int y = random.nextInt(gridSize);
-            if (board.getGrid()[x][y].getType() == 0) {
-                board.setBox(x, y, true, random.nextInt(3) + 1); // Activate the square at position (x, y) and set its type to ?
-//                for (int e = 0; e < gridSize; e++) {
-//                    for (int f = 0; f < gridSize; f++) {
-////                    generation.checkWhoDies(row, col, row + 1, col + 1);
-////                    generation.checkWhoDies(x, y, x+1 , y+0);
-//                        board.setBox(e, f, true, 3);
-//                    }
-//                }
-            }
 
 
-
+            // Render the game board
             board.repaint();
+
+
+
         }
     }
 

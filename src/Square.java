@@ -94,9 +94,35 @@ public class Square {
         return true;
     }
 
-    public boolean canMoveHere() {
+    public boolean canMoveHere(int x, int y, Board board) {
+        Square[][] grid = board.getGrid();
+        int gridLength = grid.length;
 
+        for (int i = x - 1; i <= x + 1; i++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                if (i >= 0 && i < gridLength && j >= 0 && j < gridLength) {
+                    if (grid[i][j].getType() == 0) {
+
+                        grid[i][j].setType(grid[x][y].getType());
+                        grid[i][j].setActive(true);
+                        return true;
+                    }
+                }
+            }
+        }
 
         return false;
     }
+
+
+
+
+    private boolean isValidMove(int x, int y, int gridLength) {
+        return x >= 0 && x < gridLength && y >= 0 && y < gridLength;
+    }
+
+
+
+
+
 }

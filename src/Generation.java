@@ -13,6 +13,12 @@ public class Generation {
         board.setBox(0,1,true, 2);
         board.setBox(0,2,true, 3);
 
+        board.setBox(2,12,true, 3);
+        board.setBox(12,34,true, 3);
+        board.setBox(35,66,true, 3);
+        board.setBox(12,57,true, 3);
+        board.setBox(7,6,true, 3);
+
     }
 
     public void checkWhoDies(int x, int y, int newX, int newY) {
