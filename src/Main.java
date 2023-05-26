@@ -62,19 +62,28 @@ public class Main {
 
 
 
+
             Square[][] grid = board.getGrid();
             int gridLength = grid.length;
 
             for (int x = 0; x < gridLength; x++) {
                 for (int y = 0; y < gridLength; y++) {
-                    squares.canMoveHere(x, y, board);
+                    try {
+                        Thread.sleep(100); // Delay of 1 second
+                    } catch (InterruptedException e) {
+                        // Handle exception if needed
+                    }
+                    System.out.println(x + ", " + y);
+                    if (squares.canMoveHere(x, y, board)){
+                        grid[x][y].setType(grid[x][y].getType());
+                        grid[x][y].setActive(true);
+                        // Render the game board
+                        board.repaint();
+                    }
                 }
             }
 
 
-
-            // Render the game board
-            board.repaint();
 
 
 

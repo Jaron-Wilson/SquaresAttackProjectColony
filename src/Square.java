@@ -102,9 +102,6 @@ public class Square {
             for (int j = y - 1; j <= y + 1; j++) {
                 if (i >= 0 && i < gridLength && j >= 0 && j < gridLength) {
                     if (grid[i][j].getType() == 0) {
-
-                        grid[i][j].setType(grid[x][y].getType());
-                        grid[i][j].setActive(true);
                         return true;
                     }
                 }
