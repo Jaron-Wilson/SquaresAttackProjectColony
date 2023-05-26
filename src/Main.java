@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Main {
     private String title = "Game Board";
-    private int size = 100;
+    private int size = 10;
     private int width = 800, height = 800;
 //    private int cellSize = windowSize/size;
     private int cellSize = width/size;

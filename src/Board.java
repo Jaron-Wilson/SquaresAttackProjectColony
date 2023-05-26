@@ -15,9 +15,12 @@ public class Board extends JFrame {
 //        grid[0][0] = true;  // Setting element at position [0][0] to true
     }
 
-    void setBox(int x, int y, boolean b, int type) {
-        grid[x][y].setColor(type);
-        grid[x][y].setActive(b);
+    public void setBox(int x, int y, boolean b, int type) {
+        int width = grid.length;
+        if (x >=0 && x < width && y >= 0 && y < width) {
+            grid[x][y].setColor(type);
+            grid[x][y].setActive(b);
+        }
     }
 
     private void setUpWindow() {
