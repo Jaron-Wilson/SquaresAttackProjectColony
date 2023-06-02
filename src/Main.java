@@ -20,12 +20,12 @@ public class Main {
         });
 
 
-        main.mainGameLoop(board, generation, squares);
+        main.mainGameLoop(board, generation, squares, 1000);
 
     }
 
 
-    public void mainGameLoop(Board board, Generation generation, Square squares) {
+    public void mainGameLoop(Board board, Generation generation, Square squares, int gameSpeedMS) {
         Random random = new Random();
         System.out.println("Setting up Basic squares!");
         generation.setUpStartingSquares();
@@ -69,7 +69,7 @@ public class Main {
             for (int x = 0; x < gridLength; x++) {
                 for (int y = 0; y < gridLength; y++) {
                     try {
-                        Thread.sleep(100); // Delay of 1 second
+                        Thread.sleep(gameSpeedMS); // Delay of 1 second
                     } catch (InterruptedException e) {
                         // Handle exception if needed
                     }
